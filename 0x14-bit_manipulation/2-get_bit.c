@@ -1,21 +1,17 @@
-#include"main.h"
+#include "main.h"
 
 /**
- * get_bit - prog returns the value of a bit at a given index.
- * @n: number to check bits in
- * @index: index at which to check bit
- *
- * Return: value of the bit, or -1 if there is an error
+ * get_bit - it takes the value of a bit of index in a decimal number be return
+ * @n: search for index or number or integer
+ * @index: numbers of bit of index(s)
+ * Return: The bit
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int divisor, check;
+        int amonut_of_bit_values;
 
-	if (index > (sizeof(unsigned long int) * 8 - 1))
-		return (-1);
-	divisor = 1 << index;
-	check = n & divisor;
-	if (check == divisor)
-		return (1);
-	return (0);
+        if (index > 63)
+                return (-1);
+        amonut_of_bit_values = (n >> index) & 1;
+        return (amonut_of_bit_values);
 }
