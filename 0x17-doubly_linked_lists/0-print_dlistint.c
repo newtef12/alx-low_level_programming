@@ -9,7 +9,7 @@
 size_t print_dlistint(const dlistint_t *h)
 {
     size_t count = 0;
-    const dlistint_t *temp = h; /* Use a temporary pointer to traverse the list */
+    const dlistint_t *temp = h; /* Temporary pointer to traverse the list */
 
     /* Handle the case where the given head is NULL */
     if (temp == NULL) {
@@ -23,6 +23,7 @@ size_t print_dlistint(const dlistint_t *h)
     }
 
     /* Now 'temp' points to the actual head of the list */
+
     /* Traverse the list and print its elements */
     while (temp != NULL)
     {
