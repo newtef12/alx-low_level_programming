@@ -8,11 +8,19 @@
 size_t dlistint_len(const dlistint_t *h)
 {
     size_t count = 0;
+    const dlistint_t *temp = h;
 
-    while (h != NULL)
+    /* Traverse to find the actual head */
+    while (temp && temp->prev != NULL)
+        temp = temp->prev;
+
+    /* Now 'temp' points to the actual head of the list */
+
+    /* Traverse the list and count its elements */
+    while (temp != NULL)
     {
         count++;
-        h = h->next;
+        temp = temp->next;
     }
 
     return count;
