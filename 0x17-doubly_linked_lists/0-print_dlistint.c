@@ -15,7 +15,6 @@ size_t print_dlistint(const dlistint_t *h)
 
     /* Handle the case where the list is empty */
     if (temp == NULL) {
-        printf("List is empty\n");
         return 0;
     }
 
