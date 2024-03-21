@@ -1,0 +1,5 @@
+crackme4/
+│
+├── crackme4           # Executable file
+├── README.md          # Optional: README file with instructions or information
+└── other_files/       # Optional: Other files or resources needed by the program

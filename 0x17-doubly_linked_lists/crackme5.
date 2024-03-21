@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_USERNAME_LENGTH 100
+#define MAX_KEY_LENGTH 100
+
+int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        printf("Usage: %s username key\n", argv[0]);
+        return 1;
+    }
+
+    char *username = argv[1];
+    char *key = argv[2];
+
+    // Assume a simple verification mechanism here
+    if (strcmp(username, "julien") == 0 && strcmp(key, "javascript") == 0) {
+        printf("Congrats!\n");
+    } else {
+        // Simulate a segmentation fault to indicate failure
+        int *ptr = NULL;
+        *ptr = 42;
+    }
+
+    return 0;
+}
