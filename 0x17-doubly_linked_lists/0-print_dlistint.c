@@ -1,15 +1,14 @@
 #include "lists.h"
 #include <stdio.h>
 
-/**
- * print_dlistint - Prints all the elements of a dlistint_t list.
- * @h: Pointer to the head of the list
- * Return: The number of nodes in the list
- */
-size_t print_dlistint(const dlistint_t *h)
+size_t print_dlistint(h)
+    const dlistint_t *h;
 {
     size_t count = 0;
-    const dlistint_t *temp = h; /* Temporary pointer to traverse the list */
+    const dlistint_t *temp;
+
+    /* Temporary pointer to traverse the list */
+    temp = h;
 
     /* Handle the case where the given head is NULL */
     if (temp == NULL) {
