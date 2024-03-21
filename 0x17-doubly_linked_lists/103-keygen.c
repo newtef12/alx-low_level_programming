@@ -4,6 +4,10 @@
 
 #define KEY_LENGTH 6
 
+/* Function prototype */
+void generate_key(char *username, char *key);
+
+/* Function to generate a key based on the sum of ASCII values of characters in the username */
 void generate_key(char *username, char *key) {
     int sum = 0;
     size_t len = strlen(username);
