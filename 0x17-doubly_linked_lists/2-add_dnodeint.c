@@ -1,4 +1,13 @@
-#include "lists.h"
+#include <stdlib.h>
+
+/* Define the dlistint_t structure */
+struct dlistint_s
+{
+    int n;
+    struct dlistint_s *prev;
+    struct dlistint_s *next;
+};
+typedef struct dlistint_s dlistint_t;
 
 /**
  * dlistint_len - Returns the number of elements in a linked dlistint_t list.
@@ -37,9 +46,10 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
     dlistint_t *new_node;
 
+    /* Initialize the new node */
     new_node = malloc(sizeof(dlistint_t));
     if (new_node == NULL)
-        return (NULL);
+        return NULL;
 
     new_node->n = n;
     new_node->prev = NULL;
@@ -50,5 +60,5 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 
     *head = new_node;
 
-    return (new_node);
+    return new_node;
 }
