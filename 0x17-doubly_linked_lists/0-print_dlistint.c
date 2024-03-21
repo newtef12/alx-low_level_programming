@@ -1,22 +1,19 @@
 #include "lists.h"
 #include <stdio.h>
 
-size_t print_dlistint(h)
-    const dlistint_t *h;
+size_t print_dlistint(const dlistint_t *h)
 {
     size_t count = 0;
     const dlistint_t *temp;
 
-    /* Temporary pointer to traverse the list */
-    temp = h;
-
     /* Handle the case where the given head is NULL */
-    if (temp == NULL) {
+    if (h == NULL) {
         printf("List is empty\n");
         return 0;
     }
 
-    /* Traverse the list to find the actual head */
+    /* Traverse to find the actual head */
+    temp = h;
     while (temp->prev != NULL) {
         temp = temp->prev;
     }
