@@ -10,27 +10,28 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
+    const dlistint_t *temp = h;
     size_t count = 0;
-    
+
     /* Handle the case where the list is empty */
-    if (h == NULL) {
+    if (temp == NULL) {
         printf("List is empty\n");
         return 0;
     }
 
     /* Traverse to find the actual head */
-    while (h->prev != NULL) {
-        h = h->prev;
+    while (temp->prev != NULL) {
+        temp = temp->prev;
     }
 
-    /* Now 'h' points to the actual head of the list */
+    /* Now 'temp' points to the actual head of the list */
 
     /* Traverse the list and print its elements */
-    while (h != NULL)
+    while (temp != NULL)
     {
-        printf("%d\n", h->n);
+        printf("%d\n", temp->n);
         count++;
-        h = h->next;
+        temp = temp->next;
     }
 
     return count;
