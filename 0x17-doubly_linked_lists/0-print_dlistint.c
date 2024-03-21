@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h> /* Include this header file */
 
 /**
  * print_dlistint - prints all the elements of a
@@ -10,28 +9,22 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-    const dlistint_t *temp = h;
-    size_t count = 0;
+	int count;
 
-    /* Handle the case where the list is empty */
-    if (temp == NULL) {
-        return 0;
-    }
+	count = 0;
 
-    /* Traverse to find the actual head */
-    while (temp->prev != NULL) {
-        temp = temp->prev;
-    }
+	if (h == NULL)
+		return (count);
 
-    /* Now 'temp' points to the actual head of the list */
+	while (h->prev != NULL)
+		h = h->prev;
 
-    /* Traverse the list and print its elements */
-    while (temp != NULL)
-    {
-        printf("%d\n", temp->n);
-        count++;
-        temp = temp->next;
-    }
+	while (h != NULL)
+	{
+		printf("%d\n", h->n);
+		count++;
+		h = h->next;
+	}
 
-    return count;
+	return (count);
 }
