@@ -9,25 +9,25 @@
 size_t print_dlistint(const dlistint_t *h)
 {
     size_t count = 0;
-    dlistint_t *head = NULL; /* Define a temporary head pointer */
+    const dlistint_t *temp = h; /* Use a temporary pointer to traverse the list */
 
     /* Handle the case where the given head is NULL */
-    if (h == NULL) {
+    if (temp == NULL) {
         printf("List is empty\n");
         return 0;
     }
 
-    /* Iterate to find the actual head of the list */
-    while (h->prev != NULL) {
-        h = h->prev;
+    /* Traverse the list to find the actual head */
+    while (temp->prev != NULL) {
+        temp = temp->prev;
     }
-    head = (dlistint_t *)h; /* Now 'head' points to the actual head of the list */
 
+    /* Now 'temp' points to the actual head of the list */
     /* Traverse the list and print its elements */
-    while (head != NULL)
+    while (temp != NULL)
     {
-        printf("%d\n", head->n);
-        head = head->next;
+        printf("%d\n", temp->n);
+        temp = temp->next;
         count++;
     }
 
