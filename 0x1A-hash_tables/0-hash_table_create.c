@@ -1,54 +1,29 @@
-/* hash_tables.h */
-#ifndef HASH_TABLES_H
-#define HASH_TABLES_H
-
-/* Declarations for hash table functions go here */
-
-#endif /* HASH_TABLES_H */
-
-/* 1-djb2.c */
-#include "hash_tables.h"
-#include <stdlib.h>
-
-/**
- * hash_djb2 - function to compute hash of 'str' using djb2
- * @str: string to hash
- *
- * Return: value of 64 bits hash
- */
-
-unsigned long int hash_djb2(const unsigned char *str)
-{
-    unsigned long int hash;
-    int c;
-
-    hash = 5381;
-    while ((c = *str++))
-    {
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-    }
-    return (hash);
-}
-
-/* 1-main.c */
-#include <stdlib.h>
-#include <stdio.h>
 #include "hash_tables.h"
 
 /**
- * main - check the code
+ * hash_table_create - creates a hash table
+ * @size: size of the hash table
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: pointer to hash table
  */
-int main(void)
-{
-    char *s;
 
-    s = "cisfun";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    s = "Don't forget to tweet today";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    s = "98";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    return (EXIT_SUCCESS);
+hash_table_t *hash_table_create(unsigned long int size)
+{
+	hash_table_t *table;
+
+	if (size == 0)
+		return (NULL);
+
+	table = calloc(1, sizeof(hash_table_t));
+	if (table == NULL)
+		return (NULL);
+
+	table->size = size;
+	table->array = calloc(size, sizeof(hash_node_t *));
+	if (table->array == NULL)
+	{
+		free(table);
+		return (NULL);
+	}
+	return (table);
 }
